@@ -1,7 +1,7 @@
 <?php include 'db_connect.php' ?>
 <?php
 if(isset($_GET['id'])){
-	$qry = $conn->query("SELECT * FROM facilitators where id=".$_GET['id'])->fetch_array();
+	$qry = $conn->query("SELECT * FROM faculty where id=".$_GET['id'])->fetch_array();
 	foreach($qry as $k =>$v){
 		$$k = $v;
 	}
@@ -11,7 +11,10 @@ if(isset($_GET['id'])){
 <div class="container-fluid py-3">
 	<form action="" id="manage-faculty">
 		<div id="msg"></div>
-				<input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id']:'' ?>" class="form-control">
+				<input type="hidden" name="id" 
+				value="<?php echo isset($_GET['id']) ? $_GET['id']:'' ?>" readonly class="form-control">
+		
+		
 		<div class="row form-group" hidden>
 			<div class="col-md-4">
 						<label class="control-label">ID No.</label>
