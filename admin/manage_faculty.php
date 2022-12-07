@@ -1,21 +1,21 @@
 <?php include 'db_connect.php' ?>
 <?php
 if(isset($_GET['id'])){
-	$qry = $conn->query("SELECT * FROM faculty where id=".$_GET['id'])->fetch_array();
+	$qry = $conn->query("SELECT * FROM facilitators where id=".$_GET['id'])->fetch_array();
 	foreach($qry as $k =>$v){
 		$$k = $v;
 	}
 }
 
 ?>
-<div class="container-fluid">
+<div class="container-fluid py-3">
 	<form action="" id="manage-faculty">
 		<div id="msg"></div>
 				<input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id']:'' ?>" class="form-control">
-		<div class="row form-group">
+		<div class="row form-group" hidden>
 			<div class="col-md-4">
 						<label class="control-label">ID No.</label>
-						<input type="text" name="id_no" class="form-control" value="<?php echo isset($id_no) ? $id_no:'' ?>" >
+						<input type="text" name="id_no" readonly class="form-control" value="<?php echo isset($id_no) ? $id_no:'' ?>" >
 						<small><i>Leave this blank if you want to a auto generate ID no.</i></small>
 					</div>
 		</div>
@@ -49,6 +49,21 @@ if(isset($_GET['id'])){
 					<option <?php echo isset($gender) && $gender == 'Female' ? 'selected' : '' ?>>Female</option>
 				</select>
 			</div>
+		</div>
+		<div class="row form-group">
+			<div class="col-md-4">
+				<label class="control-label">State of Residence</label>
+				<input type="state" name="state" class="form-control" value="<?php echo isset($state) ? $state:'' ?>" required>
+			</div>
+			<div class="col-md-4">
+				<label class="control-label">LGA of Residence</label>
+				<input type="lga" name="lga" class="form-control" value="<?php echo isset($lga) ? $lga:'' ?>" required>
+			</div>
+			<!-- <div class="col-md-4">
+				<label class="control-label">Language Spoken</label>
+				<select name="language" required="" class="custom-select" id="">
+				</select>
+			</div> -->
 		</div>
 		<div class="row form-group">
 			<div class="col-md-12">

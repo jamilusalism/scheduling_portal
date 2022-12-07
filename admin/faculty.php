@@ -26,29 +26,29 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<b>Facilitators List</b>
+						<b>Registered Facilitators</b>
 						<span class="">
 
 							<button class="btn btn-primary btn-block btn-sm col-sm-2 float-right" type="button" id="new_faculty">
-					<i class="fa fa-plus"></i> New</button>
+					<i class="fa fa-plus"></i> New Facilitator</button>
 				</span>
 					</div>
 					<div class="card-body">
 						
 						<table class="table table-bordered table-condensed table-hover">
-							<colgroup>
+							<!-- <colgroup>
 								<col width="5%">
 								<col width="20%">
 								<col width="30%">
 								<col width="20%">
 								<col width="10%">
 								<col width="15%">
-							</colgroup>
+							</colgroup> -->
 							<thead>
 								<tr>
 									<th class="text-center">#</th>
 									<th class="">ID No</th>
-									<th class="">Name</th>
+									<th class="">Full Name</th>
 									<th class="">Email</th>
 									<th class="">Contact</th>
 									<th class="text-center">Action</th>
@@ -64,24 +64,40 @@
 									
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class="">
-										 <p><b><?php echo $row['id_no'] ?></b></p>
+										 <p><?php echo $row['id_no'] ?></p>
 										 
 									</td>
 									<td class="">
-										 <p><b><?php echo ucwords($row['name']) ?></b></p>
+										 <p><?php echo ucwords($row['name']) ?></p>
 										 
 									</td>
 									<td class="">
-										 <p><b><?php echo $row['email'] ?></b></p>
+										 <p><?php echo $row['email'] ?></p>
 									</td>
 									<td class="text-right">
-										 <p><b><?php echo $row['contact'] ?></b></p>
+										 <p><?php echo $row['contact'] ?></p>
 										 
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-outline-primary view_faculty" type="button" data-id="<?php echo $row['id'] ?>" >View</button>
-										<button class="btn btn-sm btn-outline-primary edit_faculty" type="button" data-id="<?php echo $row['id'] ?>" >Edit</button>
-										<button class="btn btn-sm btn-outline-danger delete_faculty" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+									
+									<!-- <?php echo $row['id'] ?> -->
+
+						<div class="btn-group">
+							<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<i class="bi bi-chevron-bar-down"></i>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right">
+							
+								<button class="dropdown-item view_faculty" type="button" data-id="<?php echo $row['id'] ?>" ><span class="text-primary">View</span></button>
+								
+								<button class="dropdown-item edit_faculty" type="button" data-id="<?php echo $row['id'] ?>"><span class="text-primary">Edit</span></button>
+
+								<button class="dropdown-item  delete_faculty" type="button" data-id="<?php echo $row['id'] ?>" ><span class="text-danger">Delete</span></button>
+
+							</div>
+						</div>
+
+
 									</td>
 								</tr>
 								<?php endwhile; ?>
@@ -113,18 +129,18 @@
 		$('table').dataTable()
 	})
 	$('#new_faculty').click(function(){
-		uni_modal("New Entry","manage_faculty.php",'mid-large')
+		uni_modal("Register New Facilitator","manage_faculty.php",'mid-large')
 	})
 	$('.view_faculty').click(function(){
-		uni_modal("Faculty Details","view_faculty.php?id="+$(this).attr('data-id'),'')
-		
+		uni_modal("<b>Facilitator's Details</b>","view_faculty.php?id="+$(this).attr('data-id'),'')
+
 	})
 	$('.edit_faculty').click(function(){
-		uni_modal("Manage Job Post","manage_faculty.php?id="+$(this).attr('data-id'),'mid-large')
+		uni_modal("<b>Modify Facilitator's Details</b>","manage_faculty.php?id="+$(this).attr('data-id'),'mid-large')
 		
 	})
 	$('.delete_faculty').click(function(){
-		_conf("Are you sure to delete this topic?","delete_faculty",[$(this).attr('data-id')],'mid-large')
+		_conf("Are you sure to delete this facilitator?","delete_faculty",[$(this).attr('data-id')],'mid-large')
 	})
 
 	function delete_faculty($id){
