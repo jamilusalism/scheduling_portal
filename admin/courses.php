@@ -9,16 +9,16 @@
 			<form action="" id="manage-course">
 				<div class="card">
 					<div class="card-header">
-						    Course Form
+						    <b>Add/Modify Programme</b>
 				  	</div>
 					<div class="card-body">
 							<input type="hidden" name="id">
 							<div class="form-group">
-								<label class="control-label">Course</label>
-								<input type="text" class="form-control" name="course">
+								<label class="control-label">Programme Title</label>
+								<input type="text" placeholder="Enter new programme title" class="form-control" name="course">
 							</div>
 							<div class="form-group">
-								<label class="control-label">Description</label>
+								<label class="control-label">Programme Description</label>
 								<textarea class="form-control" cols="30" rows='3' name="description"></textarea>
 							</div>
 							
@@ -41,14 +41,14 @@
 			<div class="col-md-8">
 				<div class="card">
 					<div class="card-header">
-						<b>course List</b>
+						<b>Registered Programmes</b>
 					</div>
 					<div class="card-body">
 						<table class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th class="text-center">#</th>
-									<th class="text-center">Course</th>
+									<th>#</th>
+									<th class="text-center">Programme</th>
 									<th class="text-center">Action</th>
 								</tr>
 							</thead>
@@ -59,16 +59,27 @@
 								while($row=$course->fetch_assoc()):
 								?>
 								<tr>
-									<td class="text-center"><?php echo $i++ ?></td>
+									<td><?php echo $i++ ?></td>
 									<td class="">
-										<p>Course: <b><?php echo $row['course'] ?></b></p>
-										<p>Description: <small><b><?php echo $row['description'] ?></b></small></p>
+										<p><b>Programme: </b><?php echo $row['course'] ?>
+										
+										<br/><b>Description: </b> <small><?php echo $row['description'] ?></small></p>
 										
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-primary edit_course" type="button" data-id="<?php echo $row['id'] ?>" data-course="<?php echo $row['course'] ?>" data-description="<?php echo $row['description'] ?>" >Edit</button>
-										<button class="btn btn-sm btn-danger delete_course" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
-									</td>
+
+									<div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    <i class="bi bi-chevron-bar-down"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    
+    <button class="dropdown-item edit_course" type="button" data-id="<?php echo $row['id'] ?>" data-course="<?php echo $row['course'] ?>" data-description="<?php echo $row['description'] ?>" ><span class="text-primary">Edit</span></button>
+
+	 <button class="dropdown-item delete_course" type="button" data-id="<?php echo $row['id'] ?>"><span class="text-danger">Delete</span></button>
+  </div>
+</div>
+									</td>	
 								</tr>
 								<?php endwhile; ?>
 							</tbody>

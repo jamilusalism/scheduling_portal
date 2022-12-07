@@ -15,17 +15,17 @@ foreach($user->fetch_array() as $k =>$v){
 		<input type="hidden" name="id" value="<?php echo isset($meta['id']) ? $meta['id']: '' ?>">
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" name="name" id="name" class="form-control" value="<?php echo isset($meta['name']) ? $meta['name']: '' ?>" required>
+			<input type="text" readonly name="name" id="name" class="form-control" value="<?php echo isset($meta['name']) ? $meta['name']: '' ?>" required>
 		</div>
 		<div class="form-group">
 			<label for="username">Username</label>
-			<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($meta['username']) ? $meta['username']: '' ?>" required  autocomplete="off">
+			<input type="text" readonly name="username" id="username" class="form-control" value="<?php echo isset($meta['username']) ? $meta['username']: '' ?>" required  autocomplete="off">
 		</div>
 		<div class="form-group">
 			<label for="password">Password</label>
 			<input type="password" name="password" id="password" class="form-control" value="" autocomplete="off">
 			<?php if(isset($meta['id'])): ?>
-			<small><i>Leave this blank if you dont want to change the password.</i></small>
+			<!-- <small><i>Leave this blank if you dont want to change the password.</i></small> -->
 		<?php endif; ?>
 		</div>
 		<?php if(isset($meta['type']) && $meta['type'] == 3): ?>
@@ -50,7 +50,7 @@ foreach($user->fetch_array() as $k =>$v){
 	$('#manage-user').submit(function(e){
 		e.preventDefault();
 		start_load()
-		$.ajax({
+		$.ajax(
 			url:'ajax.php?action=save_user',
 			method:'POST',
 			data:$(this).serialize(),
