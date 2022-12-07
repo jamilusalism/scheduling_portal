@@ -16,7 +16,7 @@ if(isset($_GET['id'])){
 	<p><b>Email:</b> </i> <?php echo $email ?></p>
 	<p><b>Contact:</b> </i> <?php echo $contact ?></p> <hr>
 	<p><b>State:</b> <?php echo ucwords($state) ?></p>
-	<p><b>LGA:</b> <?php echo ucwords($) ?></p>
+	<p><b>LGA:</b> <?php echo ucwords($lga) ?></p>
 	<p><b>Address:</b> </i> <?php echo $address ?></p>
 
 	<hr class="divider">
