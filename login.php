@@ -11,7 +11,6 @@ ob_end_flush();
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Facilitators Scheduling System</title>
- 	
 
 <?php include('./header.php'); ?>
 <?php 
@@ -26,7 +25,6 @@ header("location:index.php");
 		width: 100%;
 	    height: calc(100%);
 		position:fixed;
-		background: red;
 	}
 	#main{
 		width: calc(100%);
@@ -36,27 +34,27 @@ header("location:index.php");
 		justify-content:center
 	}
 	#login{
-		
+		/* background: url(admin/assets/img/user_bg.); */
 	}
 	
-
 </style>
 
 <body>
-
 
   <main id="main" class=" bg-dark">
   		<div id="login" class="col-md-4">
   			<div class="card">
   				<div class="card-body">
   						
-  					<form id="login-form" >
-					  <h4><b>Welcome Facilitators Scheduling System</b></h4>
+  					<form id="login-form" class="pb-3">
+					  <h4 class="py-4"><b>Login as Facilitator</b> <br><br>
+					<small><i>Please enter your Facilitators ID to view your training schedules</i></small>
+					</h4>
   						<div class="form-group">
-  							<label for="id_no" class="control-label">Please enter your Facilitators ID No.</label>
-  							<input type="text" id="id_no" name="id_no" class="form-control">
+  							
+  							<input type="text" placeholder="Enter your ID to login" id="id_no" name="id_no" class="form-control">
   						</div>
-  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center>
+  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-success">Login</button></center>
   					</form>
   				</div>
   			</div>
