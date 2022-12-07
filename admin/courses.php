@@ -61,9 +61,9 @@
 								<tr>
 									<td><?php echo $i++ ?></td>
 									<td class="">
-										<p><b>Programme: </b><?php echo $row['course'] ?>
-										
-										<br/><b>Description: </b> <small><?php echo $row['description'] ?></small></p>
+										<p><b>Title: </b><?php echo $row['course'] ?><br/>
+										<!-- <b>Description: </b>  -->
+										<small><?php echo $row['description'] ?></small></p>
 										
 									</td>
 									<td class="text-center">

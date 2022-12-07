@@ -9,11 +9,16 @@ if(isset($_GET['id'])){
 
 ?>
 <div class="container-fluid">
-	<p>Name: <b><?php echo ucwords($name) ?></b></p>
-	<p>Gender: <b><?php echo ucwords($gender) ?></b></p>
-	<p>Email: </i> <b><?php echo $email ?></b></p>
-	<p>Contact: </i> <b><?php echo $contact ?></b></p>
-	<p>Address: </i> <b><?php echo $address ?></b></p>
+	
+	<p><b>Name:</b> <?php echo ucwords($name) ?></p>
+	<p><b>Gender:</b> <?php echo ucwords($gender) ?></p>
+	<p><b>ID No.:</b> <?php echo ucwords($id_no) ?></p> <hr>
+	<p><b>Email:</b> </i> <?php echo $email ?></p>
+	<p><b>Contact:</b> </i> <?php echo $contact ?></p> <hr>
+	<p><b>State:</b> <?php echo ucwords($state) ?></p>
+	<p><b>LGA:</b> <?php echo ucwords($lga) ?></p>
+	<p><b>Address:</b> </i> <?php echo $address ?></p>
+
 	<hr class="divider">
 </div>
 <div class="modal-footer display">
