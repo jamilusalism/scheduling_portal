@@ -49,7 +49,7 @@ header("location:index.php?page=home");
 		background:#59b6ec61;
 		display: flex;
 		align-items: center;
-		background: url(assets/uploads/<?php echo $_SESSION['system']['cover_img'] ?>);
+		background: url(assets/img/admin_login_bg.gif);
 	    background-repeat: no-repeat;
 	    background-size: cover;
 	}
@@ -90,13 +90,15 @@ div#login-right::before {
   				<div class="card-body">
   						
   					<form id="login-form" >
+						 <h4 class="py-3"><b>Login as Admin</b></h4>
+
   						<div class="form-group">
   							<label for="username" class="control-label">Username</label>
-  							<input type="text" id="username" name="username" class="form-control">
+  							<input type="text" placeholder="Enter your username" id="username" name="username" class="form-control">
   						</div>
   						<div class="form-group">
   							<label for="password" class="control-label">Password</label>
-  							<input type="password" id="password" name="password" class="form-control">
+  							<input type="password" placeholder="Enter your password" id="password" name="password" class="form-control">
   						</div>
   						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center>
   					</form>

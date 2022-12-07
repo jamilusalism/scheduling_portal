@@ -26,6 +26,7 @@ header("location:index.php");
 		width: 100%;
 	    height: calc(100%);
 		position:fixed;
+		background: red;
 	}
 	#main{
 		width: calc(100%);
