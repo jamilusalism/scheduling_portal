@@ -79,8 +79,6 @@
 										 
 									</td>
 									<td class="text-center">
-									
-									<!-- <?php echo $row['id'] ?> -->
 
 						<div class="btn-group">
 							<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
