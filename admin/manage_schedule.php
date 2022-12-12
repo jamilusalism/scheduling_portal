@@ -72,7 +72,7 @@ $rdata= json_decode($repeating_data);
 					</div>
 					
 					<div class="form-group">
-						<label for="" class="control-label">Training Description </label>
+						<label for="" class="control-label">Description Summary</label>
 						<textarea class="form-control" name="description" cols="30" rows="5" placeholder="such as total participants, etc"><?php echo isset($description) ? $description : '' ?></textarea>
 					</div>
 				</div>
@@ -80,28 +80,8 @@ $rdata= json_decode($repeating_data);
 		</div>
 	</form>
 </div>
-<div class="imgF" style="display: none " id="img-clone">
-			<span class="rem badge badge-primary" onclick="rem_func($(this))"><i class="fa fa-times"></i></span>
-	</div>
+
 <script>
-	if('<?php echo isset($id) ? 1 : 0 ?>' == 1){
-		if($('#is_repeating').prop('checked') == true){
-			$('.for-repeating').show()
-			$('.for-nonrepeating').hide()
-		}else{
-			$('.for-repeating').hide()
-			$('.for-nonrepeating').show()
-		}
-	}
-	$('#is_repeating').change(function(){
-		if($(this).prop('checked') == true){
-			$('.for-repeating').show()
-			$('.for-nonrepeating').hide()
-		}else{
-			$('.for-repeating').hide()
-			$('.for-nonrepeating').show()
-		}
-	})
 	$('.select2').select2({
 		placeholder:'Please select facilitator',
 		width:'100%'
