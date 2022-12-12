@@ -269,7 +269,7 @@ window._conf = function($msg='',$func='',$params = []){
 				          events: evt,
 				          eventClick: function(e,el) {
 							   var data =  e.event.extendedProps;
-								uni_modal('View Schedule Details','view_schedule.php?id='+data.data_id,'mid-large')
+								uni_modal('<b>Schedule Details</b>','view_schedule.php?id='+data.data_id,'mid-large')
 
 							  }
 				        });
