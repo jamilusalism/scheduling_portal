@@ -9,11 +9,20 @@ if(isset($_GET['id'])){
 
 ?>
 <div class="container-fluid">
-	<p>Schedule for: <b><?php echo ucwords($title) ?></b></p>
-	<p>Description: <b><?php echo $description ?></b></p>
-	<p>Location: </i> <b><?php echo $location ?></b></p>
-	<p>Time Start: </i> <b><?php echo date('h:i A',strtotime("2020-01-01 ".$time_from)) ?></b></p>
-	<p>Time End: </i> <b><?php echo date('h:i A',strtotime("2020-01-01 ".$time_to)) ?></b></p>
+	<p><b>Facilitator's Name:</b> <?php echo ucwords($faculty_id) ?></p>
+	<p><b>Contact:</b> <?php echo ucwords($faculty_id) ?></p>
+	<hr>
+	<p><b>Programme:</b> <?php echo ucwords($title) ?></p>
+	<p><b>State:</b> <?php echo ucwords($state) ?></p>
+	<p><b>LGA:</b> <?php echo ucwords($lga) ?></p>
+	<p><b>Location:</b> </i> <?php echo $location ?></p>
+	<p><b>Contact Person:</b> </i> <?php echo $contact_person ?></p>
+	<hr>
+	<p><b>Schedule Date:</b> <?php echo $schedule_date ?></p>
+	<p><b>Time:</b> </i> <?php echo date('h:i A',strtotime("2020-01-01 ".$time_from)) ?>
+	<b>-</b> </i> <?php echo date('h:i A',strtotime("2020-01-01 ".$time_to)) ?></p>
+	<hr>
+	<p><b>Description:</b> <?php echo $description ?></p>
 	<hr class="divider">
 </div>
 <div class="modal-footer display">
@@ -38,7 +47,7 @@ if(isset($_GET['id'])){
 </style>
 <script>
 	$('#edit').click(function(){
-		uni_modal('Edit Schedule','manage_schedule.php?id=<?php echo $id ?>','mid-large')
+		uni_modal('<b>Modify Registered Schedule</b>','manage_schedule.php?id=<?php echo $id ?>','mid-large')
 	})
 	$('#delete_schedule').click(function(){
 		_conf("Are you sure to delete this schedule?","delete_schedule",[$(this).attr('data-id')])
