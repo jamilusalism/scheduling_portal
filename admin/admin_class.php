@@ -332,21 +332,18 @@ Class Action {
 	}
 	function save_schedule(){
 		extract($_POST);
-		$data = " faculty_id = '$faculty_id' ";
+		$data = " faculty_id = 4 ";
 		$data .= ", title = '$title' ";
-		$data .= ", schedule_type = '$schedule_type' ";
-		$data .= ", description = '$description' ";
+		$data .= ", state = '$state' ";
+		$data .= ", lga = '$lga' ";
 		$data .= ", location = '$location' ";
-		if(isset($is_repeating)){
-			$data .= ", is_repeating = '$is_repeating' ";
-			$rdata = array('dow'=>implode(',', $dow),'start'=>$month_from.'-01','end'=>(date('Y-m-d',strtotime($month_to .'-01 +1 month - 1 day '))));
-			$data .= ", repeating_data = '".json_encode($rdata)."' ";
-		}else{
-			$data .= ", is_repeating = 0 ";
-			$data .= ", schedule_date = '$schedule_date' ";
-		}
+		$data .= ", contact_person = '$contact_person' ";
+		
+		$data .= ", schedule_date = '$schedule_date' ";
 		$data .= ", time_from = '$time_from' ";
 		$data .= ", time_to = '$time_to' ";
+		$data .= ", description = '$description' ";
+		$data .= ", is_repeating = 0 ";
 
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO schedules set ".$data);
