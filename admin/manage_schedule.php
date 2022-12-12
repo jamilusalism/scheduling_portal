@@ -82,6 +82,7 @@ $rdata= json_decode($repeating_data);
 </div>
 
 <script>
+	
 	$('.select2').select2({
 		placeholder:'Please select facilitator',
 		width:'100%'

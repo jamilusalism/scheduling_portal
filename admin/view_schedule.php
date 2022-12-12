@@ -19,8 +19,8 @@ if(isset($_GET['id'])){
 	<p><b>Contact Person:</b> </i> <?php echo $contact_person ?></p>
 	<hr>
 	<p><b>Schedule Date:</b> <?php echo $schedule_date ?></p>
-	<p><b>Time:</b> </i> <?php echo date('h:i A',strtotime("2020-01-01 ".$time_from)) ?>
-	<b>-</b> </i> <?php echo date('h:i A',strtotime("2020-01-01 ".$time_to)) ?></p>
+	<p><b>Time:</b> </i> <?php echo date('h:i A',strtotime("2022-01-01 ".$time_from)) ?>
+	<b>-</b> </i> <?php echo date('h:i A',strtotime("2022-01-01 ".$time_to)) ?></p>
 	<hr>
 	<p><b>Description:</b> <?php echo $description ?></p>
 	<hr class="divider">

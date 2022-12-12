@@ -11,7 +11,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<b>Schedule</b>
+						<b>Manage Schedule</b>
 						<span class="float:right"><button class="btn btn-primary btn-block btn-sm col-sm-2 float-right"  id="new_schedule">
 					<i class="fa fa-plus"></i> New Schedule 
 				</button></span>
@@ -92,7 +92,7 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
 <script>
 	
 	$('#new_schedule').click(function(){
-		uni_modal('Create New Schedule','manage_schedule.php','mid-large')
+		uni_modal('<b>Create New Schedule</b>','manage_schedule.php','mid-large')
 	})
 	$('.view_alumni').click(function(){
 		uni_modal("Bio","view_alumni.php?id="+$(this).attr('data-id'),'mid-large')
@@ -195,8 +195,7 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
 				          events: evt,
 				          eventClick: function(e,el) {
 							   var data =  e.event.extendedProps;
-								uni_modal('View Schedule Details','view_schedule.php?id='+data.data_id,'mid-large')
-
+								uni_modal('<b>Schedule Details</b>','view_schedule.php?id='+data.data_id,'mid-large')
 							  }
 				        });
 		 	}
