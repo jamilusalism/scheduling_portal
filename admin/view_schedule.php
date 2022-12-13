@@ -5,6 +5,8 @@ if(isset($_GET['id'])){
 	foreach($qry as $k =>$v){
 		$$k = $v;
 	}
+
+	$qryTutor = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM faculty where id=".$faculty_id)->fetch_array();
 }
 
 ?>
@@ -29,7 +31,7 @@ if(isset($_GET['id'])){
 	<div class="row">
 		<div class="col-md-12">
 			<button class="btn float-right btn-secondary" type="button" data-dismiss="modal">Close</button>
-			<button class="btn float-right btn-danger mr-2" type="button" id="delete_schedule">Delete</button>
+			<button class="btn float-right btn-danger mr-2" type="button" id="delete_schedule" data-id="<?php echo $id ?>">Delete</button>
 			<button class="btn float-right btn-primary mr-2" type="button" id="edit">Edit</button>
 		</div>
 	</div>
