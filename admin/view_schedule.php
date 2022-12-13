@@ -7,12 +7,16 @@ if(isset($_GET['id'])){
 	}
 
 	$qryTutor = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM faculty where id=".$faculty_id)->fetch_array();
+
+
+	// $chk = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM faculty where id=".$faculty_id)->num_rows;
 }
 
 ?>
 <div class="container-fluid">
+
 	<p><b>Facilitator's Name:</b> <?php echo ucwords($faculty_id) ?></p>
-	<p><b>Contact:</b> <?php echo ucwords($faculty_id) ?></p>
+	<p><b>Contact:</b> <?php echo $chk['contact'] ?> </p>
 	<hr>
 	<p><b>Programme:</b> <?php echo ucwords($title) ?></p>
 	<p><b>State:</b> <?php echo ucwords($state) ?></p>
