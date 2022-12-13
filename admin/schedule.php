@@ -1,4 +1,12 @@
-<?php include('db_connect.php');?>
+<?php include('db_connect.php');
+
+	$qry = $conn->query("SELECT id FROM faculty ORDER BY RAND() LIMIT 1")->fetch_array();
+	foreach($qry as $k =>$v){
+		 echo $faculty_id = $v;
+	}
+
+
+?>
 <div class="container-fluid">
 	
 	<div class="col-lg-12">

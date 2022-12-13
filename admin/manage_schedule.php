@@ -22,6 +22,7 @@ $rdata= json_decode($repeating_data);
 <div class="container-fluid">
 	<form action="" id="manage-schedule">
 		<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
+		<input type="hidden" name="faculty_id" value="<?php echo isset($faculty_id) ? $faculty_id : '' ?>">
 		<div class="col-lg-16">
 			<div class="row">
 				<div class="col-md-6">

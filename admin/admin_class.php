@@ -331,8 +331,17 @@ Class Action {
 		}
 	}
 	function save_schedule(){
+
 		extract($_POST);
-		$data = " faculty_id = 4 ";
+
+		if(empty($id)) {
+			$qry = $this->db->query("SELECT id FROM faculty ORDER BY RAND() LIMIT 1")->fetch_array();
+			foreach($qry as $k =>$v){
+				$faculty_id = $v;
+			}
+		}
+
+		$data = " faculty_id = '$faculty_id' ";
 		$data .= ", title = '$title' ";
 		$data .= ", state = '$state' ";
 		$data .= ", lga = '$lga' ";
