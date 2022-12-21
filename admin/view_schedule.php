@@ -6,7 +6,7 @@ if(isset($_GET['id'])){
 		$$k = $v;
 	}
 
-	$qry = $conn->query("SELECT concat(lastname,', ',firstname,' ',middlename) as name, contact FROM facilitators where id=".$faculty_id)->fetch_array();
+	$qry = $conn->query("SELECT concat(lastname,', ',firstname,' ',middlename) as name, contact FROM facilitators where id=".$facilitator_id)->fetch_array();
 	foreach($qry as $k =>$v){
 		 $$k = $v;
 	}

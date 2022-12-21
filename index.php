@@ -224,7 +224,7 @@ window._conf = function($msg='',$func='',$params = []){
 		 $.ajax({
 		 	url:'admin/ajax.php?action=get_schecdule',
 		 	method:'POST',
-		 	data:{faculty_id: '<?php echo $_SESSION['login_id'] ?>'},
+		 	data:{facilitator_id: '<?php echo $_SESSION['login_id'] ?>'},
 		 	success:function(resp){
 		 		if(resp){
 		 			resp = JSON.parse(resp)

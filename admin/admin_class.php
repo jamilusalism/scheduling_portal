@@ -337,11 +337,11 @@ Class Action {
 		if(empty($id)) {
 			$qry = $this->db->query("SELECT id FROM facilitators ORDER BY RAND() LIMIT 1")->fetch_array();
 			foreach($qry as $k =>$v){
-				$faculty_id = $v;
+				$facilitator_id = $v;
 			}
 		}
 
-		$data = " faculty_id = '$faculty_id' ";
+		$data = " facilitator_id = '$facilitator_id' ";
 		$data .= ", title = '$title' ";
 		$data .= ", state = '$state' ";
 		$data .= ", lga = '$lga' ";
@@ -372,7 +372,7 @@ Class Action {
 	function get_schecdule(){
 		extract($_POST);
 		$data = array();
-		$qry = $this->db->query("SELECT * FROM schedules where faculty_id = 0 or faculty_id = $faculty_id");
+		$qry = $this->db->query("SELECT * FROM schedules where facilitator_id = 0 or facilitator_id = $facilitator_id");
 		while($row=$qry->fetch_assoc()){
 			if($row['is_repeating'] == 1){
 				$rdata = json_decode($row['repeating_data']);

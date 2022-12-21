@@ -27,7 +27,7 @@
 
 								<label for="" class="control-label">Search for individual scheduled:</label>
 								<!-- <small><i>Search individual schedule</i></small> -->
-							<select name="faculty_id" id="faculty_id" class="custom-select select2">
+							<select name="facilitator_id" id="facilitator_id" class="custom-select select2">
 								<option value=""></option>
 							<?php 
 								$faculty = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM facilitators order by concat(lastname,', ',firstname,' ',middlename) asc");
@@ -148,13 +148,13 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
 
   });
 
-	$('#faculty_id').change(function(){
+	$('#facilitator_id').change(function(){
 		 calendar.destroy()
 		 start_load()
 		 $.ajax({
 		 	url:'ajax.php?action=get_schecdule',
 		 	method:'POST',
-		 	data:{faculty_id: $(this).val()},
+		 	data:{facilitator_id: $(this).val()},
 		 	success:function(resp){
 		 		if(resp){
 		 			resp = JSON.parse(resp)
@@ -209,5 +209,5 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
 		 	}
 		 })
 	})
-	
+
 </script>
