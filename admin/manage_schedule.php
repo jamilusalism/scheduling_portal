@@ -29,12 +29,12 @@ $rdata= json_decode($repeating_data);
 					<div class="form-group">
 						<label for="" class="control-label">Select Programme</label>
 						<select name="title" id="title" class="custom-select select2">
-							<option value="0">Please select programme</option>
+							<option>Please select programme</option>
 						<?php 
 							$courses = $conn->query("SELECT * FROM programme order by course asc");
 							while($row= $courses->fetch_array()):
 						?>
-							<option value="<?php echo $row['course'] ?>" <?php echo isset($courses_id) && $courses_id == $row['id'] ? 'selected' : '' ?>><?php echo ucwords($row['course']) ?></option>
+							<option value="<?php echo $row['course'] ?>" <?php echo isset($id) && $id == $row['id'] ? 'selected' : '' ?>><?php echo ucwords($row['course']) ?></option>
 						<?php endwhile; ?>
 						</select>
 					</div>
