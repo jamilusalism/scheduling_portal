@@ -30,8 +30,8 @@
 							<select name="facilitator_id" id="facilitator_id" class="custom-select select2">
 								<option value=""></option>
 							<?php 
-								$faculty = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM facilitators order by concat(lastname,', ',firstname,' ',middlename) asc");
-								while($row= $faculty->fetch_array()):
+								$facilitator = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM facilitators order by concat(lastname,', ',firstname,' ',middlename) asc");
+								while($row= $facilitator->fetch_array()):
 							?>
 								<option value="<?php echo $row['id'] ?>"><?php echo ucwords($row['name']) ?></option>
 							<?php endwhile; ?>

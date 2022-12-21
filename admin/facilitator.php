@@ -29,7 +29,7 @@
 						<b>Registered Facilitators</b>
 						<span class="">
 
-							<button class="btn btn-primary btn-block btn-sm col-sm-2 float-right" type="button" id="new_faculty">
+							<button class="btn btn-primary btn-block btn-sm col-sm-2 float-right" type="button" id="new_facilitator">
 					<i class="fa fa-plus"></i> New Facilitator</button>
 				</span>
 					</div>
@@ -58,8 +58,8 @@
 							<tbody>
 								<?php 
 								$i = 1;
-								$faculty =  $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name from facilitators order by concat(lastname,', ',firstname,' ',middlename) asc");
-								while($row=$faculty->fetch_assoc()):
+								$facilitator =  $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name from facilitators order by concat(lastname,', ',firstname,' ',middlename) asc");
+								while($row=$facilitator->fetch_assoc()):
 								?>
 								<tr>
 									
@@ -86,11 +86,11 @@
 							</button>
 							<div class="dropdown-menu dropdown-menu-right">
 							
-								<button class="dropdown-item view_faculty" type="button" data-id="<?php echo $row['id'] ?>" ><span class="text-primary">View</span></button>
+								<button class="dropdown-item view_facilitator" type="button" data-id="<?php echo $row['id'] ?>" ><span class="text-primary">View</span></button>
 								
-								<button class="dropdown-item edit_faculty" type="button" data-id="<?php echo $row['id'] ?>"><span class="text-primary">Edit</span></button>
+								<button class="dropdown-item edit_facilitator" type="button" data-id="<?php echo $row['id'] ?>"><span class="text-primary">Edit</span></button>
 
-								<button class="dropdown-item  delete_faculty" type="button" data-id="<?php echo $row['id'] ?>" ><span class="text-danger">Delete</span></button>
+								<button class="dropdown-item  delete_facilitator" type="button" data-id="<?php echo $row['id'] ?>" ><span class="text-danger">Delete</span></button>
 
 							</div>
 						</div>
@@ -126,25 +126,25 @@
 	$(document).ready(function(){
 		$('table').dataTable()
 	})
-	$('#new_faculty').click(function(){
-		uni_modal("Register New Facilitator","manage_faculty.php",'mid-large')
+	$('#new_facilitator').click(function(){
+		uni_modal("Register New Facilitator","manage_facilitator.php",'mid-large')
 	})
-	$('.view_faculty').click(function(){
-		uni_modal("<b>Facilitator's Details</b>","view_faculty.php?id="+$(this).attr('data-id'),'')
+	$('.view_facilitator').click(function(){
+		uni_modal("<b>Facilitator's Details</b>","view_facilitator.php?id="+$(this).attr('data-id'),'')
 
 	})
-	$('.edit_faculty').click(function(){
-		uni_modal("<b>Modify Facilitator's Details</b>","manage_faculty.php?id="+$(this).attr('data-id'),'mid-large')
+	$('.edit_facilitator').click(function(){
+		uni_modal("<b>Modify Facilitator's Details</b>","manage_facilitator.php?id="+$(this).attr('data-id'),'mid-large')
 		
 	})
-	$('.delete_faculty').click(function(){
-		_conf("Are you sure to delete this facilitator?","delete_faculty",[$(this).attr('data-id')],'mid-large')
+	$('.delete_facilitator').click(function(){
+		_conf("Are you sure to delete this facilitator?","delete_facilitator",[$(this).attr('data-id')],'mid-large')
 	})
 
-	function delete_faculty($id){
+	function delete_facilitator($id){
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=delete_faculty',
+			url:'ajax.php?action=delete_facilitator',
 			method:'POST',
 			data:{id:$id},
 			success:function(resp){

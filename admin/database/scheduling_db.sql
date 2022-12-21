@@ -45,10 +45,10 @@ INSERT INTO `courses` (`id`, `course`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faculty`
+-- Table structure for table `facilitator`
 --
 
-CREATE TABLE `faculty` (
+CREATE TABLE `facilitator` (
   `id` int(30) NOT NULL,
   `id_no` varchar(100) NOT NULL,
   `firstname` varchar(100) NOT NULL,
@@ -63,10 +63,10 @@ CREATE TABLE `faculty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `faculty`
+-- Dumping data for table `facilitator`
 --
 
-INSERT INTO `faculty` (`id`, `id_no`, `firstname`, `middlename`, `lastname`, `contact`, `gender`, `address`, `email`, `state`, `lga`) VALUES
+INSERT INTO `facilitator` (`id`, `id_no`, `firstname`, `middlename`, `lastname`, `contact`, `gender`, `address`, `email`, `state`, `lga`) VALUES
 (7, '64506025', 'Sagir', 'Tanimu', 'Musa', '08022334455', 'Male', 'Gwarzo Road, Rijiyar Zaki, Kano', 'mtsagir@gmail.com', 'Kano', 'Nassarawa'),
 (8, '07549615', 'Jamila', 'Mohammed', 'Salisu', '08028752833', 'Female', 'Unguwan Dosa, Kaduna', 'jamilusalis@gmail.com', 'Kaduna', 'Kaduna North'),
 (9, '71786277', 'Nabeelah', 'Garba', 'Ahmed', '08066664444', 'Female', 'NDA, Kaduna', 'nabeelah@gmail.com', 'Adamawa', 'Yola North');
@@ -79,7 +79,7 @@ INSERT INTO `faculty` (`id`, `id_no`, `firstname`, `middlename`, `lastname`, `co
 
 CREATE TABLE `schedules` (
   `id` int(30) NOT NULL,
-  `faculty_id` int(30) NOT NULL,
+  `facilitator_id` int(30) NOT NULL,
   `title` varchar(200) DEFAULT NULL,
   `state` varchar(50) NOT NULL,
   `lga` varchar(50) NOT NULL,
@@ -127,9 +127,9 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `faculty`
+-- Indexes for table `facilitator`
 --
-ALTER TABLE `faculty`
+ALTER TABLE `facilitator`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -155,9 +155,9 @@ ALTER TABLE `courses`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `faculty`
+-- AUTO_INCREMENT for table `facilitator`
 --
-ALTER TABLE `faculty`
+ALTER TABLE `facilitator`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --

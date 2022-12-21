@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
 
 ?>
 <div class="container-fluid py-3">
-	<form action="" id="manage-faculty">
+	<form action="" id="manage-facilitator">
 		<div id="msg"></div>
 				<input type="hidden" name="id" 
 				value="<?php echo isset($_GET['id']) ? $_GET['id']:'' ?>" readonly class="form-control">
@@ -86,11 +86,11 @@ if(isset($_GET['id'])){
 </div>
 
 <script>
-	$('#manage-faculty').submit(function(e){
+	$('#manage-facilitator').submit(function(e){
 		e.preventDefault()
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=save_faculty',
+			url:'ajax.php?action=save_facilitator',
 			method:'POST',
 			data:$(this).serialize(),
 			success:function(resp){

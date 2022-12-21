@@ -8,10 +8,10 @@ if($action == 'login'){
 	if($login)
 		echo $login;
 }
-if($action == 'login_faculty'){
-	$login_faculty = $crud->login_faculty();
-	if($login_faculty)
-		echo $login_faculty;
+if($action == 'login_facilitator'){
+	$login_facilitator = $crud->login_facilitator();
+	if($login_facilitator)
+		echo $login_facilitator;
 }
 if($action == 'login2'){
 	$login = $crud->login2();
@@ -75,13 +75,13 @@ if($action == "delete_subject"){
 	if($delete)
 		echo $delete;
 }
-if($action == "save_faculty"){
-	$save = $crud->save_faculty();
+if($action == "save_facilitator"){
+	$save = $crud->save_facilitator();
 	if($save)
 		echo $save;
 }
-if($action == "delete_faculty"){
-	$save = $crud->delete_faculty();
+if($action == "delete_facilitator"){
+	$save = $crud->delete_facilitator();
 	if($save)
 		echo $save;
 }

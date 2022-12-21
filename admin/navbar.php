@@ -18,7 +18,7 @@
 					
 				<a href="index.php?page=courses" class="nav-item nav-courses"><span class='icon-field'><i class="fa fa-list"></i></span> Manage Programme</a>
 				
-				<a href="index.php?page=faculty" class="nav-item nav-faculty"><span class='icon-field'><i class="fa fa-user-tie"></i></span> Manage Facilitators</a>
+				<a href="index.php?page=facilitator" class="nav-item nav-facilitator"><span class='icon-field'><i class="fa fa-user-tie"></i></span> Manage Facilitators</a>
 			
 					<!-- <a href="index.php?page=users" class="nav-item nav-users"><span class='icon-field'><i class="fa fa-users"></i></span> Users</a> -->
 

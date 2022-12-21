@@ -36,7 +36,7 @@ Class Action {
 				return 3;
 			}
 	}
-	function login_faculty(){
+	function login_facilitator(){
 		
 		extract($_POST);		
 		$qry = $this->db->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM facilitators where id_no = '".$id_no."' ");
@@ -275,7 +275,7 @@ Class Action {
 	// 		return 1;
 	// 	}
 	// }
-	function save_faculty(){
+	function save_facilitator(){
 		extract($_POST);
 		$data = '';
 		foreach($_POST as $k=> $v){
@@ -323,7 +323,7 @@ Class Action {
 		if($save)
 			return 1;
 	}
-	function delete_faculty(){
+	function delete_facilitator(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM facilitators where id = ".$id);
 		if($delete){

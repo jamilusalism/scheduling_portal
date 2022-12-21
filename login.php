@@ -74,7 +74,7 @@ header("location:index.php");
 		if($(this).find('.alert-danger').length > 0 )
 			$(this).find('.alert-danger').remove();
 		$.ajax({
-			url:'admin/ajax.php?action=login_faculty',
+			url:'admin/ajax.php?action=login_facilitator',
 			method:'POST',
 			data:$(this).serialize(),
 			error:err=>{
