@@ -1,7 +1,7 @@
 <?php include 'db_connect.php' ?>
 <?php
 if(isset($_GET['id'])){
-	$qry = $conn->query("SELECT * FROM faculty where id=".$_GET['id'])->fetch_array();
+	$qry = $conn->query("SELECT * FROM facilitators where id=".$_GET['id'])->fetch_array();
 	foreach($qry as $k =>$v){
 		$$k = $v;
 	}
@@ -62,11 +62,7 @@ if(isset($_GET['id'])){
 				<label class="control-label">LGA of Residence</label>
 				<input type="lga" name="lga" class="form-control" value="<?php echo isset($lga) ? $lga:'' ?>" required>
 			</div>
-			<!-- <div class="col-md-4">
-				<label class="control-label">Language Spoken</label>
-				<select name="language" required="" class="custom-select" id="">
-				</select>
-			</div> -->
+			
 		</div>
 		<div class="row form-group">
 			<div class="col-md-12">

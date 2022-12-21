@@ -57,7 +57,7 @@
 							<tbody>
 								<?php 
 								$i = 1;
-								$faculty =  $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name from faculty order by concat(lastname,', ',firstname,' ',middlename) asc");
+								$faculty =  $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name from facilitators order by concat(lastname,', ',firstname,' ',middlename) asc");
 								while($row=$faculty->fetch_assoc()):
 								?>
 								<tr>

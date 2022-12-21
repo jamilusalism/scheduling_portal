@@ -39,7 +39,7 @@ Class Action {
 	function login_faculty(){
 		
 		extract($_POST);		
-		$qry = $this->db->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM faculty where id_no = '".$id_no."' ");
+		$qry = $this->db->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM facilitators where id_no = '".$id_no."' ");
 		if($qry->num_rows > 0){
 			foreach ($qry->fetch_array() as $key => $value) {
 				if($key != 'password' && !is_numeric($key))
@@ -293,7 +293,7 @@ Class Action {
 				while($i == 1){
 					$rand = mt_rand(1,99999999);
 					$rand =sprintf("%'08d",$rand);
-					$chk = $this->db->query("SELECT * FROM faculty where id_no = '$rand' ")->num_rows;
+					$chk = $this->db->query("SELECT * FROM facilitators where id_no = '$rand' ")->num_rows;
 					if($chk <= 0){
 						$data .= ", id_no='$rand' ";
 						$i = 0;
@@ -303,29 +303,29 @@ Class Action {
 
 		if(empty($id)){
 			if(!empty($id_no)){
-				$chk = $this->db->query("SELECT * FROM faculty where id_no = '$id_no' ")->num_rows;
+				$chk = $this->db->query("SELECT * FROM facilitators where id_no = '$id_no' ")->num_rows;
 				if($chk > 0){
 					return 2;
 					exit;
 				}
 			}
-			$save = $this->db->query("INSERT INTO faculty set $data ");
+			$save = $this->db->query("INSERT INTO facilitators set $data ");
 		}else{
 			if(!empty($id_no)){
-				$chk = $this->db->query("SELECT * FROM faculty where id_no = '$id_no' and id != $id ")->num_rows;
+				$chk = $this->db->query("SELECT * FROM facilitators where id_no = '$id_no' and id != $id ")->num_rows;
 				if($chk > 0){
 					return 2;
 					exit;
 				}
 			}
-			$save = $this->db->query("UPDATE faculty set $data where id=".$id);
+			$save = $this->db->query("UPDATE facilitators set $data where id=".$id);
 		}
 		if($save)
 			return 1;
 	}
 	function delete_faculty(){
 		extract($_POST);
-		$delete = $this->db->query("DELETE FROM faculty where id = ".$id);
+		$delete = $this->db->query("DELETE FROM facilitators where id = ".$id);
 		if($delete){
 			return 1;
 		}
@@ -335,7 +335,7 @@ Class Action {
 		extract($_POST);
 
 		if(empty($id)) {
-			$qry = $this->db->query("SELECT id FROM faculty ORDER BY RAND() LIMIT 1")->fetch_array();
+			$qry = $this->db->query("SELECT id FROM facilitators ORDER BY RAND() LIMIT 1")->fetch_array();
 			foreach($qry as $k =>$v){
 				$faculty_id = $v;
 			}
