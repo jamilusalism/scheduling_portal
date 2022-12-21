@@ -31,7 +31,7 @@ $rdata= json_decode($repeating_data);
 						<select name="title" id="title" class="custom-select select2">
 							<option value="0">Please select programme</option>
 						<?php 
-							$courses = $conn->query("SELECT * FROM courses order by course asc");
+							$courses = $conn->query("SELECT * FROM programme order by course asc");
 							while($row= $courses->fetch_array()):
 						?>
 							<option value="<?php echo $row['course'] ?>" <?php echo isset($courses_id) && $courses_id == $row['id'] ? 'selected' : '' ?>><?php echo ucwords($row['course']) ?></option>
