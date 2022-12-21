@@ -1,4 +1,7 @@
-<?php include('db_connect.php');?>
+<?php include('db_connect.php');
+
+
+?>
 <div class="container-fluid">
 	
 	<div class="col-lg-12">
@@ -144,6 +147,7 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
      
 
   });
+
 	$('#faculty_id').change(function(){
 		 calendar.destroy()
 		 start_load()
@@ -205,4 +209,5 @@ a.fc-timegrid-event.fc-v-event.fc-event.fc-event-start.fc-event-end.fc-event-pas
 		 	}
 		 })
 	})
+	
 </script>

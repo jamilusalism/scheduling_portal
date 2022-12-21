@@ -51,6 +51,7 @@
 									<th class="">Full Name</th>
 									<th class="">Email</th>
 									<th class="">Contact</th>
+									<!-- <th class="">Area of Expertise</th>	 -->
 									<th class="text-center">Action</th>
 								</tr>
 							</thead>
@@ -76,7 +77,6 @@
 									</td>
 									<td class="text-right">
 										 <p><?php echo $row['contact'] ?></p>
-										 
 									</td>
 									<td class="text-center">
 

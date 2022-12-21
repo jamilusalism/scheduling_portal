@@ -62,6 +62,18 @@ if(isset($_GET['id'])){
 				<label class="control-label">LGA of Residence</label>
 				<input type="lga" name="lga" class="form-control" value="<?php echo isset($lga) ? $lga:'' ?>" required>
 			</div>
+			<div class="col-md-4">
+				<label class="control-label">Area of Expertise</label>
+				<select name="programme_id" required="" class="custom-select" id="">
+					<option value="">Select please...</option>
+					<?php 
+							$courses = $conn->query("SELECT * FROM programme order by course asc");
+							while($row= $courses->fetch_array()):
+						?>
+							<option value="<?php echo $row['id'] ?>" <?php echo isset($programme_id) && $programme_id == $row['id'] ? 'selected' : '' ?>><?php echo ucwords($row['course']) ?></option>
+						<?php endwhile; ?>
+				</select>
+			</div>
 			
 		</div>
 		<div class="row form-group">
