@@ -242,39 +242,39 @@ Class Action {
 		$data = " course = '$course' ";
 		$data .= ", description = '$description' ";
 			if(empty($id)){
-				$save = $this->db->query("INSERT INTO courses set $data");
+				$save = $this->db->query("INSERT INTO programme set $data");
 			}else{
-				$save = $this->db->query("UPDATE courses set $data where id = $id");
+				$save = $this->db->query("UPDATE programme set $data where id = $id");
 			}
 		if($save)
 			return 1;
 	}
 	function delete_course(){
 		extract($_POST);
-		$delete = $this->db->query("DELETE FROM courses where id = ".$id);
+		$delete = $this->db->query("DELETE FROM programme where id = ".$id);
 		if($delete){
 			return 1;
 		}
 	}
-	function save_subject(){
-		extract($_POST);
-		$data = " subject = '$subject' ";
-		$data .= ", description = '$description' ";
-			if(empty($id)){
-				$save = $this->db->query("INSERT INTO subjects set $data");
-			}else{
-				$save = $this->db->query("UPDATE subjects set $data where id = $id");
-			}
-		if($save)
-			return 1;
-	}
-	function delete_subject(){
-		extract($_POST);
-		$delete = $this->db->query("DELETE FROM subjects where id = ".$id);
-		if($delete){
-			return 1;
-		}
-	}
+	// function save_subject(){
+	// 	extract($_POST);
+	// 	$data = " subject = '$subject' ";
+	// 	$data .= ", description = '$description' ";
+	// 		if(empty($id)){
+	// 			$save = $this->db->query("INSERT INTO subjects set $data");
+	// 		}else{
+	// 			$save = $this->db->query("UPDATE subjects set $data where id = $id");
+	// 		}
+	// 	if($save)
+	// 		return 1;
+	// }
+	// function delete_subject(){
+	// 	extract($_POST);
+	// 	$delete = $this->db->query("DELETE FROM subjects where id = ".$id);
+	// 	if($delete){
+	// 		return 1;
+	// 	}
+	// }
 	function save_faculty(){
 		extract($_POST);
 		$data = '';

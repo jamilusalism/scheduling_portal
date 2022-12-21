@@ -55,7 +55,7 @@
 							<tbody>
 								<?php 
 								$i = 1;
-								$course = $conn->query("SELECT * FROM courses order by id asc");
+								$course = $conn->query("SELECT * FROM programme order by id asc");
 								while($row=$course->fetch_assoc()):
 								?>
 								<tr>
