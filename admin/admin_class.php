@@ -372,17 +372,34 @@ Class Action {
 	function get_schecdule(){
 		extract($_POST);
 		$data = array();
-		$qry = $this->db->query("SELECT * FROM schedules where facilitator_id = 0 or facilitator_id = $facilitator_id");
-		while($row=$qry->fetch_assoc()){
-			if($row['is_repeating'] == 1){
-				$rdata = json_decode($row['repeating_data']);
-				foreach($rdata as $k =>$v){
-					$row[$k] = $v;
+
+		if ($facilitator_id == "all") {
+			$qry = $this->db->query("SELECT * FROM schedules");
+			while($row=$qry->fetch_assoc()){
+				if($row['is_repeating'] == 1){
+					$rdata = json_decode($row['repeating_data']);
+					foreach($rdata as $k =>$v){
+						$row[$k] = $v;
+					}
 				}
+				$data[] = $row;
 			}
-			$data[] = $row;
-		}
-			return json_encode($data);
+				return json_encode($data);
+
+		} else {
+			$qry = $this->db->query("SELECT * FROM schedules where facilitator_id = 0 or facilitator_id = $facilitator_id");
+			while($row=$qry->fetch_assoc()){
+				if($row['is_repeating'] == 1){
+					$rdata = json_decode($row['repeating_data']);
+					foreach($rdata as $k =>$v){
+						$row[$k] = $v;
+					}
+				}
+				$data[] = $row;
+			}
+				return json_encode($data);
+		}//end if
+		
 	}
 	function delete_forum(){
 		extract($_POST);

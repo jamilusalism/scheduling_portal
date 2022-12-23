@@ -28,7 +28,8 @@
 								<label for="" class="control-label">Search for individual scheduled:</label>
 								<!-- <small><i>Search individual schedule</i></small> -->
 							<select name="facilitator_id" id="facilitator_id" class="custom-select select2">
-								<option value=""></option>
+								<option value="">Please select...</option>
+								<option value="all">Show all programme schedule</option>	
 							<?php 
 								$facilitator = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM facilitators order by concat(lastname,', ',firstname,' ',middlename) asc");
 								while($row= $facilitator->fetch_array()):
