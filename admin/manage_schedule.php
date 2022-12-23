@@ -114,3 +114,28 @@ $rdata= json_decode($repeating_data);
 	})
 	
 </script>
+
+
+<!-- <script>
+$(document).ready(function(){
+    $('#title').on('change', function(){
+        var titleID = $(this).val();
+        if(titleID){
+			start_load()
+            $.ajax({
+                type:'POST',
+                url:'ajax.php?action=get_schecdule',
+                data:'id='+titleID,
+                success:function(html){
+                    $('#state').html(html);
+                    $('#city').html('<option value="">Select state first</option>'); 
+                }
+            }); 
+        }else{
+            $('#state').html('<option value="">Select country first</option>');
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
+    
+});
+</script> -->
