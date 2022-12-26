@@ -301,6 +301,29 @@ Class Action {
 						$i = 0;
 					}
 				}
+
+				//start sending email
+				ini_set( 'display_errors', 1 );
+				error_reporting( E_ALL );
+
+				//Globally
+				$from = 'no-reply@gmail.com';
+
+				// A plain text email for Access Login
+				$loginID = $sendIDCode;
+				$to = $email;
+				$subject = 'Scheduling Portal Login ID';
+
+				$message = 
+'Hello, please find below your login ID to the Scheduling Portal.
+					
+	Login ID: '.$loginID;
+				
+				// Sending email
+				if(mail($to, $subject, $message)) {
+					//echo 'Your login ID mail has been sent successfully. <br/>';
+				} 
+			//end send email
 			}
 
 		if(empty($id)){
@@ -323,32 +346,8 @@ Class Action {
 			}
 			$save = $this->db->query("UPDATE facilitators set $data where id=".$id);
 		}
-		if($save) {
-			//start sending email
-				ini_set( 'display_errors', 1 );
-				error_reporting( E_ALL );
-
-				//Globally
-				$from = 'no-reply@gmail.com';
-
-				// A plain text email for Access Login
-				$loginID = $sendIDCode;
-				$to = $email;
-				$subject = 'Scheduling Portal Login ID';
-
-				$message = 
-'Hello, please find below your login ID to the Scheduling Portal.
-					
-	Login ID: '.$loginID;
-				
-				// Sending email
-				if(mail($to, $subject, $message)) {
-					//echo 'Your login ID mail has been sent successfully. <br/>';
-				} 
-			//end send email
-
+		if($save)
 			return 1;
-		}
 			
 	}
 	function delete_facilitator(){
