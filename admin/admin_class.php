@@ -303,26 +303,14 @@ Class Action {
 				}
 
 				//start sending email
-				ini_set( 'display_errors', 1 );
-				error_reporting( E_ALL );
-
-				//Globally
 				$from = 'no-reply@gmail.com';
-
-				// A plain text email for Access Login
-				$loginID = $sendIDCode;
-				$to = $email;
 				$subject = 'Scheduling Portal Login ID';
-
 				$message = 
 'Hello, please find below your login ID to the Scheduling Portal.
 					
-	Login ID: '.$loginID;
+	Login ID: '.$sendIDCode;
 				
-				// Sending email
-				if(mail($to, $subject, $message)) {
-					//echo 'Your login ID mail has been sent successfully. <br/>';
-				} 
+				mail($email, $subject, $message);
 			//end send email
 			}
 
@@ -386,10 +374,10 @@ Class Action {
 		}else{
 			$save = $this->db->query("UPDATE schedules set ".$data." where id=".$id);
 		}
-    
-		if($save) {
+	
+if($save) {
 
-//Globally
+    //Globally
     $from = 'no-reply@gmail.com';
     $to = 'jamilusalis@gmail.com';
     $subject = 'New Scheduled Assignment';
@@ -398,8 +386,8 @@ Class Action {
 'Hello, you are assigned to facilitate training as follows:
 
     Programme Title: '.$title.'
-    Traning Location: '.$location.', '.$lga.', '$state'
-    Date: '.$schedule_date.' by '.$time_from.' - '. $time_to'
+    Traning Location: '.$location.', '.$lga.', '.$state.'
+    Date: '.$schedule_date.' by '.$time_from.' - '.$time_to.'
     Contact person: '.$contact_person.'
 
    Please ensure you get in touch with the contact person above for further information.
@@ -407,10 +395,9 @@ Class Action {
     
     // Sending email
     mail($to, $subject, $message);
-
-		return 1;
+	
+return 1;
 }
-
 	}
 	function delete_schedule(){
 		extract($_POST);
