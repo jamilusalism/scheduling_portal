@@ -386,19 +386,17 @@ Class Action {
 		}else{
 			$save = $this->db->query("UPDATE schedules set ".$data." where id=".$id);
 		}
-		if($save) {
-
-			 ini_set( 'display_errors', 1 );
-    error_reporting( E_ALL );
+	
+	if($save) {
 
     //Globally
     $from = 'no-reply@gmail.com';
 
 	 // A plain text email for Scheduling Assigment
     $title = $title;
-    $location = $location.", ".$lga.", ".$state;
+    $location = $location.', '.$lga.', '.$state;
     $when = $schedule_date;
-    $timing = $time_from - $time_to;
+    $timing = $time_from'. - .'$time_to;
     $contact_person = $contact_person;
 
     $to = 'jamilusalis@gmail.com';
