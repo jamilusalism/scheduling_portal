@@ -311,12 +311,10 @@ Class Action {
 					exit;
 				}
 			}
-			$save = $this->db->query("INSERT INTO facilitators set $data ");
 
 			//start sending email
-
-				ini_set( 'display_errors', 1 );
-				error_reporting( E_ALL );
+				// ini_set( 'display_errors', 1 );
+				// error_reporting( E_ALL );
 
 				//Globally
 				$from = 'no-reply@gmail.com';
@@ -327,9 +325,9 @@ Class Action {
 				$subject = 'Scheduling Portal Login ID';
 
 				$message = 
-				'Hello, please find below your login ID to the Scheduling Portal.
+'Hello, please find below your login ID to the Scheduling Portal.
 					
-					Login ID: '.$loginID;
+	Login ID: '.$loginID;
 				
 				// Sending email
 				if(mail($to, $subject, $message)) {
@@ -337,8 +335,10 @@ Class Action {
 				} else {
 					echo 'Unable to send email. Please try again.';
 				}
-
 			//end send email
+
+			$save = $this->db->query("INSERT INTO facilitators set $data ");
+
 		}else{
 			if(!empty($id_no)){
 				$chk = $this->db->query("SELECT * FROM facilitators where id_no = '$id_no' and id != $id ")->num_rows;
