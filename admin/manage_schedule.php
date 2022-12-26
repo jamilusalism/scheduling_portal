@@ -21,22 +21,26 @@ $rdata= json_decode($repeating_data);
 </style>
 <div class="container-fluid">
 	<form action="" id="manage-schedule">
-		<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
-		<input type="hidden" name="facilitator_id" value="<?php echo isset($facilitator_id) ? $facilitator_id : '' ?>">
+
+		<input type="text" name="id" value="<?php echo isset($id) ? $id : '' ?>">
+		<input type="text" name="facilitator_id" value="<?php echo isset($facilitator_id) ? $facilitator_id : '' ?>">
+
 		<div class="col-lg-16">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="" class="control-label">Select Programme</label>
-						<select name="title" id="title" class="custom-select select2">
-							<option>Please select programme</option>
+						<select name="title" id="title" class="custom-select select2" onchange="showUser(this.value)">
+							<option value="">Please select programme</option>
 						<?php 
 							$courses = $conn->query("SELECT * FROM programme order by course asc");
 							while($row= $courses->fetch_array()):
 						?>
-							<option value="<?php echo $row['course'] ?>" <?php echo isset($id) && $id == $row['id'] ? 'selected' : '' ?>><?php echo ucwords($row['course']) ?></option>
+							<option value="<?php echo $row['id'] ?>" <?php echo isset($title) && $title == $row['course'] ? 'selected' : '' ?>><?php echo ucwords($row['course']) ?></option>
 						<?php endwhile; ?>
 						</select>
+
+						<div id="setFacilitator"><i></i></div>
 					</div>
 					
 					<div class="form-group">
@@ -116,26 +120,19 @@ $rdata= json_decode($repeating_data);
 </script>
 
 
-<!-- <script>
-$(document).ready(function(){
-    $('#title').on('change', function(){
-        var titleID = $(this).val();
-        if(titleID){
-			start_load()
-            $.ajax({
-                type:'POST',
-                url:'ajax.php?action=get_schecdule',
-                data:'id='+titleID,
-                success:function(html){
-                    $('#state').html(html);
-                    $('#city').html('<option value="">Select state first</option>'); 
-                }
-            }); 
-        }else{
-            $('#state').html('<option value="">Select country first</option>');
-            $('#city').html('<option value="">Select state first</option>'); 
+<script>
+    function showUser(str) {
+        if (str=="") {
+            document.getElementById("setFacilitator").innerHTML="";
+            return;
         }
-    });
-    
-});
-</script> -->
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+            document.getElementById("setFacilitator").innerHTML=this.responseText;
+            }
+        }
+        xmlhttp.open("GET","assignedFacilitator.php?q="+str,true);
+        xmlhttp.send();
+    }
+</script>
