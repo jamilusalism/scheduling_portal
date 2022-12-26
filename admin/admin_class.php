@@ -334,12 +334,12 @@ Class Action {
 
 		extract($_POST);
 
-		if(empty($id)) {
-			$qry = $this->db->query("SELECT id FROM facilitators ORDER BY RAND() LIMIT 1")->fetch_array();
-			foreach($qry as $k =>$v){
-				$facilitator_id = $v;
-			}
-		}
+		// if(empty($id)) {
+		// 	$qry = $this->db->query("SELECT id FROM facilitators ORDER BY RAND() LIMIT 1")->fetch_array();
+		// 	foreach($qry as $k =>$v){
+		// 		$facilitator_id = $v;
+		// 	}
+		// }
 
 		$data = " facilitator_id = '$facilitator_id' ";
 		$data .= ", title = '$title' ";
