@@ -386,9 +386,10 @@ Class Action {
 		}else{
 			$save = $this->db->query("UPDATE schedules set ".$data." where id=".$id);
 		}
+    
 		if($save) {
 
-			//Globally
+//Globally
     $from = 'no-reply@gmail.com';
     $to = 'jamilusalis@gmail.com';
     $subject = 'New Scheduled Assignment';
@@ -406,8 +407,10 @@ Class Action {
     
     // Sending email
     mail($to, $subject, $message);
-	
-			return 1; }
+
+		return 1;
+}
+
 	}
 	function delete_schedule(){
 		extract($_POST);
