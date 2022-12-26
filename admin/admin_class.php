@@ -278,6 +278,7 @@ Class Action {
 	function save_facilitator(){
 		extract($_POST);
 		$data = '';
+		$sendIDCode = '';
 		foreach($_POST as $k=> $v){
 			if(!empty($v)){
 				if($k !='id'){
@@ -293,6 +294,7 @@ Class Action {
 				while($i == 1){
 					$rand = mt_rand(1,99999999);
 					$rand =sprintf("%'08d",$rand);
+					$sendIDCode = $rand;
 					$chk = $this->db->query("SELECT * FROM facilitators where id_no = '$rand' ")->num_rows;
 					if($chk <= 0){
 						$data .= ", id_no='$rand' ";
@@ -310,6 +312,33 @@ Class Action {
 				}
 			}
 			$save = $this->db->query("INSERT INTO facilitators set $data ");
+
+			//start sending email
+
+				ini_set( 'display_errors', 1 );
+				error_reporting( E_ALL );
+
+				//Globally
+				$from = 'no-reply@gmail.com';
+
+				// A plain text email for Access Login
+				$loginID = $sendIDCode;
+				$to = $email;
+				$subject = 'Scheduling Portal Login ID';
+
+				$message = 
+				'Hello, please find below your login ID to the Scheduling Portal.
+					
+					Login ID: '.$loginID;
+				
+				// Sending email
+				if(mail($to, $subject, $message)) {
+					echo 'Your login ID mail has been sent successfully. <br/>';
+				} else {
+					echo 'Unable to send email. Please try again.';
+				}
+
+			//end send email
 		}else{
 			if(!empty($id_no)){
 				$chk = $this->db->query("SELECT * FROM facilitators where id_no = '$id_no' and id != $id ")->num_rows;
