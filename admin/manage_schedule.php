@@ -94,7 +94,7 @@ $rdata= json_decode($repeating_data);
 <script>
 	
 	$('.select2').select2({
-		placeholder:'Please select facilitator',
+		placeholder:'Please select programme',
 		width:'100%'
 	})
 	$('#manage-schedule').submit(function(e){

@@ -16,7 +16,7 @@ if(isset($_GET['id'])){
 <div class="container-fluid">
 	
 	<p><b>Name:</b> <?php echo ucwords($name) ?></p>
-	<p><b>Area of Expertis:</b> <?php echo ucwords($course) ?></p>
+	<p><b>Area of Expertise:</b> <?php echo ucwords($course) ?></p>
 	<p><b>Gender:</b> <?php echo ucwords($gender) ?></p>
 	<p><b>ID No.:</b> <?php echo ucwords($id_no) ?></p> <hr>
 	<p><b>Email:</b> </i> <?php echo $email ?></p>
