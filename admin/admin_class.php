@@ -357,6 +357,7 @@ Class Action {
 		// }
 
 		$data = " facilitator_id = '$facilitator_id' ";
+		$data .= ", facilitator_email = '$facilitator_email' ";
 		$data .= ", title = '$title' ";
 		$data .= ", state = '$state' ";
 		$data .= ", lga = '$lga' ";
@@ -379,7 +380,6 @@ if($save) {
 
     //Globally
     $from = 'no-reply@gmail.com';
-    $to = 'jamilusalis@gmail.com';
     $subject = 'New Scheduled Assignment';
 
     $message = 
@@ -394,7 +394,7 @@ if($save) {
    Kind regards.'; 
     
     // Sending email
-    mail($to, $subject, $message);
+    mail($facilitator_email, $subject, $message);
 	
 return 1;
 }

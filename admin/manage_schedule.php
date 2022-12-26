@@ -40,9 +40,9 @@ $rdata= json_decode($repeating_data);
 						<input type="hidden" readonly  name="id" value="<?php echo isset($id) ? $id : '' ?>">
 
 						<div id="forEdit">
-							<input type="hidden" name="title" id="title" placeholder="programme title"  value="<?php echo isset($title) ? $title : '' ?>">
-							
-							<input type="hidden" placeholder="Fac. ID" name="facilitator_id" value="<?php echo isset($facilitator_id) ? $facilitator_id : '' ?>">
+							<input type="hidden" name="title" id="title" readonly  value="<?php echo isset($title) ? $title : '' ?>">
+							<input type="hidden" readonly name="facilitator_email" value="<?php echo isset($facilitator_email) ? $facilitator_email : '' ?>">
+							<input type="hidden" readonly name="facilitator_id" value="<?php echo isset($facilitator_id) ? $facilitator_id : '' ?>">
 						</div>
 
 						<div id="setFacilitator"><i></i></div>
