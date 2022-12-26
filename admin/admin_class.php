@@ -386,8 +386,43 @@ Class Action {
 		}else{
 			$save = $this->db->query("UPDATE schedules set ".$data." where id=".$id);
 		}
-		if($save)
+		if($save) {
+
+			 ini_set( 'display_errors', 1 );
+    error_reporting( E_ALL );
+
+    //Globally
+    $from = 'no-reply@gmail.com';
+
+	 // A plain text email for Scheduling Assigment
+    $title = $title;
+    $location = $location.", ".$lga.", ".$state;
+    $when = $schedule_date;
+    $timing = $time_from - $time_to;
+    $contact_person = $contact_person;
+
+    $to = 'jamilusalis@gmail.com';
+    $subject = 'New Scheduled Assignment';
+
+    $message = 
+'Hello, you are assigned to facilitate training as follows:
+
+    Programme Title: '.$title.'
+    Traning Location: '.$location.'
+    Date: '.$when.' by '.$timing .'
+    Contact person: '.$contact_person.'
+
+   Please ensure you get in touch with the contact person above for further information.
+   Kind regards.'; 
+    
+    // Sending email
+    if(mail($to, $subject, $message)) {
+        //echo 'Assignment been assiged successfully.';
+    }
+
+
 			return 1;
+		}
 	}
 	function delete_schedule(){
 		extract($_POST);
