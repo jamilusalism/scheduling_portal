@@ -129,7 +129,7 @@ Class Action {
 	}
 	function signup(){
 		extract($_POST);
-		$data = " name = '".$firstname.' '.$lastname."' ";
+		$data = " name = '".$othernames.' '.$lastname."' ";
 		$data .= ", username = '$email' ";
 		$data .= ", password = '".md5($password)."' ";
 		$chk = $this->db->query("SELECT * FROM users where username = '$email' ")->num_rows;
@@ -167,7 +167,7 @@ Class Action {
 	}
 	function update_account(){
 		extract($_POST);
-		$data = " name = '".$firstname.' '.$lastname."' ";
+		$data = " name = '".$othernames.' '.$lastname."' ";
 		$data .= ", username = '$email' ";
 		if(!empty($password))
 		$data .= ", password = '".md5($password)."' ";

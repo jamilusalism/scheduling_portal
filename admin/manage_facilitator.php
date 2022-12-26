@@ -29,7 +29,7 @@ if(isset($_GET['id'])){
 			</div>
 			<div class="col-md-8">
 				<label class="control-label">Other Name(s)</label>
-				<input type="text" name="firstname" class="form-control" value="<?php echo isset($firstname) ? $firstname:'' ?>" required>
+				<input type="text" name="othernames" class="form-control" value="<?php echo isset($othernames) ? $othernames:'' ?>" required>
 			</div>
 			
 		</div>
