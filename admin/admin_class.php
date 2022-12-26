@@ -386,8 +386,28 @@ Class Action {
 		}else{
 			$save = $this->db->query("UPDATE schedules set ".$data." where id=".$id);
 		}
-		if($save)
-			return 1;
+		if($save) {
+
+			//Globally
+    $from = 'no-reply@gmail.com';
+    $to = 'jamilusalis@gmail.com';
+    $subject = 'New Scheduled Assignment';
+
+    $message = 
+'Hello, you are assigned to facilitate training as follows:
+
+    Programme Title: '.$title.'
+    Traning Location: '.$location.', '.$lga.', '$state'
+    Date: '.$schedule_date.' by '.$time_from.' - '. $time_to'
+    Contact person: '.$contact_person.'
+
+   Please ensure you get in touch with the contact person above for further information.
+   Kind regards.'; 
+    
+    // Sending email
+    mail($to, $subject, $message);
+	
+			return 1; }
 	}
 	function delete_schedule(){
 		extract($_POST);
