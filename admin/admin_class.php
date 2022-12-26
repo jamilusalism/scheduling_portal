@@ -311,10 +311,22 @@ Class Action {
 					exit;
 				}
 			}
+			$save = $this->db->query("INSERT INTO facilitators set $data ");
 
+		}else{
+			if(!empty($id_no)){
+				$chk = $this->db->query("SELECT * FROM facilitators where id_no = '$id_no' and id != $id ")->num_rows;
+				if($chk > 0){
+					return 2;
+					exit;
+				}
+			}
+			$save = $this->db->query("UPDATE facilitators set $data where id=".$id);
+		}
+		if($save) {
 			//start sending email
-				// ini_set( 'display_errors', 1 );
-				// error_reporting( E_ALL );
+				ini_set( 'display_errors', 1 );
+				error_reporting( E_ALL );
 
 				//Globally
 				$from = 'no-reply@gmail.com';
@@ -331,26 +343,13 @@ Class Action {
 				
 				// Sending email
 				if(mail($to, $subject, $message)) {
-					echo 'Your login ID mail has been sent successfully. <br/>';
-				} else {
-					echo 'Unable to send email. Please try again.';
-				}
+					//echo 'Your login ID mail has been sent successfully. <br/>';
+				} 
 			//end send email
 
-			$save = $this->db->query("INSERT INTO facilitators set $data ");
-
-		}else{
-			if(!empty($id_no)){
-				$chk = $this->db->query("SELECT * FROM facilitators where id_no = '$id_no' and id != $id ")->num_rows;
-				if($chk > 0){
-					return 2;
-					exit;
-				}
-			}
-			$save = $this->db->query("UPDATE facilitators set $data where id=".$id);
-		}
-		if($save)
 			return 1;
+		}
+			
 	}
 	function delete_facilitator(){
 		extract($_POST);
