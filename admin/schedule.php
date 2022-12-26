@@ -31,7 +31,7 @@
 								<option value="">Please select...</option>
 								<option value="all">Show all programme schedule</option>	
 							<?php 
-								$facilitator = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM facilitators order by concat(lastname,', ',firstname,' ',middlename) asc");
+								$facilitator = $conn->query("SELECT *,concat(UPPER(lastname),', ',othernames) as name FROM facilitators order by concat(UPPER(lastname),', ',othernames) asc");
 								while($row= $facilitator->fetch_array()):
 							?>
 								<option value="<?php echo $row['id'] ?>"><?php echo ucwords($row['name']) ?></option>

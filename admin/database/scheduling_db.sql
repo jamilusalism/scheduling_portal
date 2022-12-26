@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 23, 2022 at 09:08 AM
+-- Generation Time: Dec 26, 2022 at 11:26 AM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -31,9 +31,8 @@ CREATE TABLE `facilitators` (
   `id` int(30) NOT NULL,
   `id_no` varchar(100) NOT NULL,
   `programme_id` int(20) NOT NULL,
-  `firstname` varchar(100) NOT NULL,
-  `middlename` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
+  `othernames` varchar(100) NOT NULL,
   `contact` varchar(100) NOT NULL,
   `gender` varchar(100) NOT NULL,
   `address` text NOT NULL,
@@ -46,10 +45,11 @@ CREATE TABLE `facilitators` (
 -- Dumping data for table `facilitators`
 --
 
-INSERT INTO `facilitators` (`id`, `id_no`, `programme_id`, `firstname`, `middlename`, `lastname`, `contact`, `gender`, `address`, `email`, `state`, `lga`) VALUES
-(7, '64506025', 4, 'Sagir', 'Tanimu', 'Musa', '08022334455', 'Male', 'Gwarzo Road, Rijiyar Zaki, Kano', 'mtsagir@gmail.com', 'Kano', 'Nassarawa'),
-(8, '07549615', 1, 'Jamila', 'Mohammed', 'Salisu', '08028752833', 'Female', 'Unguwan Dosa, Kaduna', 'jamilusalis@gmail.com', 'Kaduna', 'Kaduna North'),
-(9, '71786277', 5, 'Nabeelah', 'Garba', 'Ahmed', '08066664444', 'Female', 'NDA, Kaduna', 'nabeelah@gmail.com', 'Adamawa', 'Yola North');
+INSERT INTO `facilitators` (`id`, `id_no`, `programme_id`, `lastname`, `othernames`, `contact`, `gender`, `address`, `email`, `state`, `lga`) VALUES
+(7, '64506025', 4, 'Musa', 'Sagir Tanimu', '08022334455', 'Male', 'Gwarzo Road, Rijiyar Zaki, Kano', 'mtsagir@gmail.com', 'Kano', 'Nassarawa'),
+(8, '07549615', 1, 'Salisu', 'Jamilu', '08028752833', 'Female', 'Unguwan Dosa, Kaduna', 'jamilusalis@gmail.com', 'Kaduna', 'Kaduna North'),
+(9, '71786277', 5, 'Ahmed', 'Nabeelah Garba', '08066664444', 'Female', 'NDA, Kaduna', 'nabeelah@gmail.com', 'Adamawa', 'Yola North'),
+(12, '83937086', 1, 'Aliyu', 'Hindatu', '08068535322', 'Female', 'Gusau City', 'hindualeeyu18@gmail.com', 'Zamfara', 'Gusau');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,8 @@ CREATE TABLE `programme` (
 INSERT INTO `programme` (`id`, `course`, `description`) VALUES
 (1, 'Soft Skills Training', 'Communication Skill, Negotiation Skill, Critical Thinking and Problem-Solving Skills'),
 (4, 'Financial Literacy Training', 'Cash-Flow, Networth, Money in, Money out.'),
-(5, 'Entrepreneurship Training', 'Idea Research, Product Development, Marketing the Product, Cashing out.');
+(5, 'Entrepreneurship Training', 'Idea Research, Product Development, Marketing the Product, Cashing out.'),
+(7, 'TestMe', 'HH');
 
 -- --------------------------------------------------------
 
@@ -91,18 +92,8 @@ CREATE TABLE `schedules` (
   `time_to` time NOT NULL,
   `description` text NOT NULL,
   `is_repeating` tinyint(1) NOT NULL DEFAULT '1',
-  `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `repeating_data` text,
-  `schedule_type` tinyint(1) DEFAULT NULL
+  `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `schedules`
---
-
-INSERT INTO `schedules` (`id`, `facilitator_id`, `title`, `state`, `lga`, `location`, `contact_person`, `schedule_date`, `time_from`, `time_to`, `description`, `is_repeating`, `date_created`, `repeating_data`, `schedule_type`) VALUES
-(1, 8, 'Soft Skills Training', 'Kaduna', 'Zaria', 'Kofan Doka', '08028752833', '2022-12-22', '01:15:00', '05:00:00', '10000 participant expected', 0, '2022-12-21 12:11:31', NULL, NULL),
-(2, 7, 'Financial Literacy Training', 'Kaduna', 'North', 'SMS Unguwan Dosa, Kaduna', '08011223344', '2022-12-23', '10:30:00', '16:00:00', 'You will be needing to come along with a projector', 0, '2022-12-23 08:18:55', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -161,19 +152,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `facilitators`
 --
 ALTER TABLE `facilitators`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `programme`
 --
 ALTER TABLE `programme`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
