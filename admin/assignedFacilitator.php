@@ -12,8 +12,8 @@
             $result = mysqli_query($con,$sql);
             if($row = mysqli_fetch_array($result)) {
 
-            echo 'Fac.ID <input type="text" name="facilitator_id" id="facilitator_id" value="'.$row['facilitator_id'].'" placeholder="Tutor ID" readonly>';
-            echo 'Prog. <input type="text" name="title" id="title" value="'.$row['course'].'" placeholder="programme title"  readonly>';
+            echo '<input type="hidden" name="facilitator_id" id="facilitator_id" value="'.$row['facilitator_id'].'" placeholder="Tutor ID" readonly>';
+            echo '<input type="hidden" name="title" id="title" value="'.$row['course'].'" placeholder="programme title"  readonly>';
 
             } else {
                 echo "<i>No facilitator for selected programme</i>";

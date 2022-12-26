@@ -36,15 +36,13 @@ $rdata= json_decode($repeating_data);
 							<option value="<?php echo $row['id'] ?>" <?php echo isset($title) && $title == $row['course'] ? 'selected' : '' ?>><?php echo ucwords($row['course']) ?></option>
 						<?php endwhile; ?>
 						</select>
-						Sch.ID
-						<input type="text" readonly  name="id" value="<?php echo isset($id) ? $id : '' ?>">
+					
+						<input type="hidden" readonly  name="id" value="<?php echo isset($id) ? $id : '' ?>">
 
 						<div id="forEdit">
-							Prog.
-							<input type="text" name="title" id="title" placeholder="programme title"  value="<?php echo isset($title) ? $title : '' ?>">
+							<input type="hidden" name="title" id="title" placeholder="programme title"  value="<?php echo isset($title) ? $title : '' ?>">
 							
-							</br>Fac.ID
-							<input type="text" placeholder="Fac. ID" name="facilitator_id" value="<?php echo isset($facilitator_id) ? $facilitator_id : '' ?>">
+							<input type="hidden" placeholder="Fac. ID" name="facilitator_id" value="<?php echo isset($facilitator_id) ? $facilitator_id : '' ?>">
 						</div>
 
 						<div id="setFacilitator"><i></i></div>
