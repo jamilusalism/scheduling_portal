@@ -303,7 +303,7 @@ Class Action {
 				}
 
 				//start sending email
-				$from = 'no-reply@gmail.com';
+				$from = 'info@skillacquisitionscheduling.com.ng';
 				$subject = 'Scheduling Portal Login ID';
 				$message = 
 'Hello, please find below your login ID to the Scheduling Portal.
@@ -379,7 +379,7 @@ Class Action {
 if($save) {
 
     //Globally
-    $from = 'no-reply@gmail.com';
+    $from = 'info@skillacquisitionscheduling.com.ng';
     $subject = 'New Scheduled Assignment';
 
     $message = 
