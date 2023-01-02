@@ -25,7 +25,7 @@
 							<div class=" col-md-4">
 
 
-								<label for="" class="control-label">Search for scheduled:</label>
+								<label for="" class="control-label">Search for schedule:</label>
 								<!-- <small><i>Search individual schedule</i></small> -->
 							<select name="facilitator_id" id="facilitator_id" class="custom-select select2">
 								<option value="">Please select...</option>

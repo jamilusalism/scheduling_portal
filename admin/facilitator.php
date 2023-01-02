@@ -36,14 +36,7 @@
 					<div class="card-body">
 						
 						<table class="table table-bordered table-condensed table-hover">
-							<!-- <colgroup>
-								<col width="5%">
-								<col width="20%">
-								<col width="30%">
-								<col width="20%">
-								<col width="10%">
-								<col width="15%">
-							</colgroup> -->
+							
 							<thead>
 								<tr>
 									<th class="text-center">#</th>
